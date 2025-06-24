@@ -2,209 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhaktivijay | Portfolio</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --accent: #00ffe1;
     }
+
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #0e0e0e;
-      color: #ffffff;
-    }
-
-    /* Navigation */
-    nav {
-      background-color: #1c1c1c;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-    .nav-btn {
-      background-color: #00ffe1;
-      color: #000;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .nav-btn:hover {
-      background-color: #00cbb3;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
+      background: #1f1f1f;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      color: #00ffe1;
+    h1, h2 {
+      color: var(--accent);
     }
 
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      color: #00ffe1;
+    nav {
+      text-align: center;
+      padding: 1rem;
+      background-color: #181818;
+    }
+
+    .nav-btn {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: var(--accent);
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     section {
-      display: none; /* Hide all sections initially */
-      margin-bottom: 2rem;
+      padding: 2rem;
+      display: none;
     }
 
     .active-section {
       display: block;
     }
 
-    ul {
-      padding-left: 1.5rem;
+    .resume-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--accent);
+      color: #000;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .project {
-      background-color: #1c1c1c;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 10px rgba(0, 255, 225, 0.1);
+    .resume-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 255, 225, 0.5);
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #1c1c1c;
-      font-size: 0.9rem;
-      color: #ccc;
+      padding: 2rem;
+      background-color: #1f1f1f;
     }
 
-    a {
-      color: #00ffe1;
-      text-decoration: none;
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2) rotate(5deg);
+      color: var(--accent);
+    }
+
+    .footer-section {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .footer-section h2 {
+      color: var(--accent);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      .nav-btn {
+        width: 100%;
+        margin: 0.2rem 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+  <header data-aos="fade-down">
     <h1>Bhaktivijay Jadhav</h1>
-    <p>Aspiring Data Scientist | Python & ML Enthusiast | Open Source Contributor</p>
+    <p>Aspiring Data Scientist | Python & ML Enthusiast</p>
+    <button class="nav-btn" onclick="toggleMode()">🌙 Toggle Mode</button>
   </header>
 
-  <!-- Navigation -->
-  <nav>
+  <nav data-aos="fade-up">
     <button class="nav-btn" onclick="showSection('about')">About</button>
     <button class="nav-btn" onclick="showSection('education')">Education</button>
     <button class="nav-btn" onclick="showSection('skills')">Skills</button>
     <button class="nav-btn" onclick="showSection('projects')">Projects</button>
-    <button class="nav-btn" onclick="showSection('certifications')">Certifications</button>
-    <button class="nav-btn" onclick="showSection('contact')">Contact</button>
   </nav>
 
-  <!-- Main Content -->
-  <div class="container">
-    <section id="about" class="active-section">
-      <h2>About Me</h2>
-      <p>
-        I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.
-        With a strong foundation in statistics, programming, and model building, I enjoy turning raw data into actionable insights.
-      </p>
-      <p>
-        I've completed industry-recognized certifications (IBM, Google) and worked on projects involving emotion detection, HR analytics, and financial data dashboards.
-        I’m actively seeking opportunities as a Data Science Intern, Python Developer Intern, or Junior Machine Learning Engineer to apply my skills in real-world problem-solving.
-      </p>
-    </section>
+  <section id="about" class="active-section" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.</p>
+    <a href="resume.pdf" class="resume-btn" target="_blank">📄 Download Resume</a>
+  </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Master of Computer Science</strong> – Nowrosjee Wadia College (2022–2024)</li>
-      </ul>
-    </section>
+  <section id="education" data-aos="zoom-in">
+    <h2>Education</h2>
+    <ul><li>Master of Computer Science – Nowrosjee Wadia College (2022–2024)</li></ul>
+  </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, SQL, C</li>
-        <li><strong>Tools:</strong> MySQL, Git, VS Code, Power BI</li>
-        <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
-      </ul>
-    </section>
+  <section id="skills" data-aos="fade-left">
+    <h2>Skills</h2>
+    <ul>
+      <li>Languages: Python, SQL, C</li>
+      <li>Tools: MySQL, Git, VS Code, Power BI</li>
+      <li>Libraries: Pandas, NumPy, Scikit-learn</li>
+    </ul>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+  <section id="projects" data-aos="fade-up-right">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Emotion Detection</strong> – CNN for facial emotions. <a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">Repo</a></li>
+    </ul>
+  </section>
 
-      <div class="project">
-        <h3>Emotion Detection Using Deep Learning</h3>
-        <p>A CNN-based system to classify facial emotions using the FER-2013 dataset.</p>
-        <p><a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">GitHub Repo</a></p>
-      </div>
-
-      <div class="project">
-        <h3>HR Analytics - Comparison Report</h3>
-        <p>Took proactive steps to improve retention strategies using business intelligence.</p>
-        <p><strong>Technologies used:</strong> Power BI, MS Excel</p>
-        <p><a href="https://github.com/vijayjadhav1996/HR-Analytics-PowerBI-dashboard" target="_blank">GitHub Repo</a></p>
-      </div>
-
-      <div class="project">
-        <h3>Credit Card Analysis - Dashboard</h3>
-        <p>Identified a 28.8% week-over-week revenue increase through user behavior analytics.</p>
-        <p><strong>Technologies used:</strong> Power BI, MS Excel</p>
-        <p><a href="https://github.com/vijayjadhav1996/Credit_card_PowerBI_Dashboard" target="_blank">GitHub Repo</a></p>
-      </div>
-    </section>
-
-    <section id="certifications">
+  <footer data-aos="fade-up">
+    <div class="footer-section">
       <h2>Certifications</h2>
       <ul>
-        <li>Google and IBM Data Analytics</li>
-        <li>Simplilearn Certified in SQL</li>
-        <li>Analytics Benchmark certified in PowerBi</li>
-        <li>Python Certified from Marvellous Infosystem</li>
+        <li>IBM & Google Data Analytics</li>
+        <li>SQL – Simplilearn</li>
+        <li>Power BI – Analytics Benchmark</li>
+        <li>Python – Marvellous Infosystem</li>
       </ul>
-    </section>
-
-    <section id="contact">
+    </div>
+    <div class="footer-section">
       <h2>Contact</h2>
-      <p>📧 Email: jadhavbhaktivijay@gmail.com</p>
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/bhaktivijayjadhav" target="_blank">linkedin.com/in/bhaktivijayjadhav</a></p>
-      <p>💼 GitHub: <a href="https://github.com/vijayjadhav1996" target="_blank">github.com/vijayjadhav1996</a></p>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Bhaktivijay Jadhav | All Rights Reserved</p>
+      <p>Email: jadhavbhaktivijay@gmail.com</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/bhaktivijayjadhav" target="_blank">bhaktivijayjadhav</a></p>
+      <p>GitHub: <a href="https://github.com/vijayjadhav1996" target="_blank">vijayjadhav1996</a></p>
+    </div>
+    <div class="social-icons">
+      <a href="mailto:jadhavbhaktivijay@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/vijayjadhav1996" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/bhaktivijayjadhav" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2025 Bhaktivijay Jadhav — All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript to handle section toggling -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    AOS.init({ duration: 1000, once: true });
+
     function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        section.classList.remove('active-section');
-      });
-      document.getElementById(id).classList.add('active-section');
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active-section'));
+      const target = document.getElementById(id);
+      target.classList.add('active-section');
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleMode() {
+      const root = document.documentElement;
+      const isDark = root.style.getPropertyValue('--bg-color') === '#ffffff';
+      root.style.setProperty('--bg-color', isDark ? '#121212' : '#ffffff');
+      root.style.setProperty('--text-color', isDark ? '#000000' : '#000000');
     }
   </script>
-
 </body>
 </html>
