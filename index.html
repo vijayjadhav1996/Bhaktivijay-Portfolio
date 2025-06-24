@@ -18,9 +18,11 @@
       align-items: center;
       padding: 2rem 1rem;
       background: #1c1c1c;
+      flex-wrap: wrap;
     }
     .header-text {
       flex: 1;
+      min-width: 250px;
     }
     .header-text h1 {
       color: #00ffe1;
@@ -61,6 +63,17 @@
     .nav-btn:hover {
       background: #00cbb3;
     }
+    .resume-download {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.9rem;
+      background: #00ffe1;
+      color: #000;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+    }
     .container {
       max-width: 1000px;
       width: 100%;
@@ -92,22 +105,14 @@
       color: #00ffe1;
       text-decoration: none;
     }
-    .resume-download {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: #00ffe1;
-      color: #000;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
     footer {
       text-align: center;
       background: #1c1c1c;
       padding: 1rem;
       color: #aaa;
     }
+
+    /* Mobile responsiveness */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -115,6 +120,10 @@
       }
       .profile-pic {
         margin-top: 1rem;
+      }
+      .resume-download {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
       }
       .nav-btn {
         width: 100%;
