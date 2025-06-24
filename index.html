@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bhaktivijay | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #0e0e0e;
+      color: #ffffff;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #1c1c1c;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .nav-btn {
+      background-color: #00ffe1;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .nav-btn:hover {
+      background-color: #00cbb3;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffe1;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      color: #00ffe1;
+    }
+
+    section {
+      display: none; /* Hide all sections initially */
+      margin-bottom: 2rem;
+    }
+
+    .active-section {
+      display: block;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .project {
+      background-color: #1c1c1c;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0, 255, 225, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1c1c1c;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    a {
+      color: #00ffe1;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Bhaktivijay Jadhav</h1>
+    <p>Aspiring Data Scientist | Python & ML Enthusiast | Open Source Contributor</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="nav-btn" onclick="showSection('about')">About</button>
+    <button class="nav-btn" onclick="showSection('education')">Education</button>
+    <button class="nav-btn" onclick="showSection('skills')">Skills</button>
+    <button class="nav-btn" onclick="showSection('projects')">Projects</button>
+    <button class="nav-btn" onclick="showSection('certifications')">Certifications</button>
+    <button class="nav-btn" onclick="showSection('contact')">Contact</button>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section id="about" class="active-section">
+      <h2>About Me</h2>
+      <p>
+        I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.
+        With a strong foundation in statistics, programming, and model building, I enjoy turning raw data into actionable insights.
+      </p>
+      <p>
+        I've completed industry-recognized certifications (IBM, Google) and worked on projects involving emotion detection, HR analytics, and financial data dashboards.
+        I’m actively seeking opportunities as a Data Science Intern, Python Developer Intern, or Junior Machine Learning Engineer to apply my skills in real-world problem-solving.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Master of Computer Science</strong> – Nowrosjee Wadia College (2022–2024)</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> Python, SQL, C</li>
+        <li><strong>Tools:</strong> MySQL, Git, VS Code, Power BI</li>
+        <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <h3>Emotion Detection Using Deep Learning</h3>
+        <p>A CNN-based system to classify facial emotions using the FER-2013 dataset.</p>
+        <p><a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">GitHub Repo</a></p>
+      </div>
+
+      <div class="project">
+        <h3>HR Analytics - Comparison Report</h3>
+        <p>Took proactive steps to improve retention strategies using business intelligence.</p>
+        <p><strong>Technologies used:</strong> Power BI, MS Excel</p>
+        <p><a href="https://github.com/vijayjadhav1996/HR-Analytics-PowerBI-dashboard" target="_blank">GitHub Repo</a></p>
+      </div>
+
+      <div class="project">
+        <h3>Credit Card Analysis - Dashboard</h3>
+        <p>Identified a 28.8% week-over-week revenue increase through user behavior analytics.</p>
+        <p><strong>Technologies used:</strong> Power BI, MS Excel</p>
+        <p><a href="https://github.com/vijayjadhav1996/Credit_card_PowerBI_Dashboard" target="_blank">GitHub Repo</a></p>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Google and IBM Data Analytics</li>
+        <li>Simplilearn Certified in SQL</li>
+        <li>Analytics Benchmark certified in PowerBi</li>
+        <li>Python Certified from Marvellous Infosystem</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>📧 Email: jadhavbhaktivijay@gmail.com</p>
+      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/bhaktivijayjadhav" target="_blank">linkedin.com/in/bhaktivijayjadhav</a></p>
+      <p>💼 GitHub: <a href="https://github.com/vijayjadhav1996" target="_blank">github.com/vijayjadhav1996</a></p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Bhaktivijay Jadhav | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript to handle section toggling -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active-section');
+      });
+      document.getElementById(id).classList.add('active-section');
+    }
+  </script>
+
+</body>
+</html>
