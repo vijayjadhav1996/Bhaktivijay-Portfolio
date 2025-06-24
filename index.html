@@ -4,43 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhaktivijay | Portfolio</title>
-
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
   <style>
     :root {
       --bg-color: #121212;
       --text-color: #fff;
       --accent: #00ffe1;
     }
-
-    body {
+    body.light-mode {
+      --bg-color: #f5f5f5;
+      --text-color: #000;
+    }
+    html, body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
+      min-height: 100%;
+      width: 100%;
     }
-
     header {
-      background: #1f1f1f;
+      background: var(--bg-color);
       text-align: center;
       padding: 2rem;
     }
-
     h1, h2 {
       color: var(--accent);
     }
-
     nav {
       text-align: center;
       padding: 1rem;
-      background-color: #181818;
+      background-color: var(--bg-color);
     }
-
     .nav-btn {
       margin: 0.3rem;
       padding: 0.5rem 1rem;
@@ -51,16 +49,23 @@
       border-radius: 6px;
       cursor: pointer;
     }
-
+    .theme-toggle {
+      margin-top: 1rem;
+      background: none;
+      border: 2px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+    }
     section {
       padding: 2rem;
       display: none;
     }
-
     .active-section {
       display: block;
     }
-
     .resume-btn {
       display: inline-block;
       padding: 0.6rem 1.2rem;
@@ -72,45 +77,53 @@
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .resume-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba(0, 255, 225, 0.5);
     }
-
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #1f1f1f;
+      padding: 2rem 1rem;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
-
+    .footer-section {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+    footer h2 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    footer ul li {
+      margin-bottom: 0.5rem;
+    }
+    .contact-horizontal {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 1rem auto;
+    }
+    .contact-horizontal p {
+      margin: 0.5rem 0;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
     .social-icons a {
       margin: 0 0.5rem;
       color: var(--text-color);
       font-size: 1.5rem;
       transition: transform 0.3s ease, color 0.3s ease;
     }
-
     .social-icons a:hover {
       transform: scale(1.2) rotate(5deg);
       color: var(--accent);
     }
-
-    .footer-section {
-      max-width: 800px;
-      margin: 0 auto 2rem auto;
-    }
-
-    .footer-section h2 {
-      color: var(--accent);
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    @media screen and (max-width: 600px) {
+    @media (max-width: 600px) {
       .nav-btn {
         width: 100%;
         margin: 0.2rem 0;
@@ -119,32 +132,31 @@
   </style>
 </head>
 <body>
-
-  <header data-aos="fade-down">
+  <header>
     <h1>Bhaktivijay Jadhav</h1>
     <p>Aspiring Data Scientist | Python & ML Enthusiast</p>
-    <button class="nav-btn" onclick="toggleMode()">🌙 Toggle Mode</button>
+    <a href="resume.pdf" class="resume-btn" target="_blank">📄 Download Resume</a>
+    <br />
+    <button class="theme-toggle" onclick="toggleTheme()">Dark Theme ON/OFF</button>
   </header>
-
-  <nav data-aos="fade-up">
+  <nav>
     <button class="nav-btn" onclick="showSection('about')">About</button>
     <button class="nav-btn" onclick="showSection('education')">Education</button>
     <button class="nav-btn" onclick="showSection('skills')">Skills</button>
     <button class="nav-btn" onclick="showSection('projects')">Projects</button>
+    <button class="nav-btn" onclick="showSection('certifications')">Certifications</button>
   </nav>
-
-  <section id="about" class="active-section" data-aos="fade-up">
+  <section id="about" class="active-section">
     <h2>About Me</h2>
     <p>I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.</p>
-    <a href="resume.pdf" class="resume-btn" target="_blank">📄 Download Resume</a>
   </section>
-
-  <section id="education" data-aos="zoom-in">
+  <section id="education">
     <h2>Education</h2>
-    <ul><li>Master of Computer Science – Nowrosjee Wadia College (2022–2024)</li></ul>
+    <ul>
+      <li>Master of Computer Science – Nowrosjee Wadia College (2022–2024)</li>
+    </ul>
   </section>
-
-  <section id="skills" data-aos="fade-left">
+  <section id="skills">
     <h2>Skills</h2>
     <ul>
       <li>Languages: Python, SQL, C</li>
@@ -152,54 +164,44 @@
       <li>Libraries: Pandas, NumPy, Scikit-learn</li>
     </ul>
   </section>
-
-  <section id="projects" data-aos="fade-up-right">
+  <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li><strong>Emotion Detection</strong> – CNN for facial emotions. <a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">Repo</a></li>
+      <li><strong>Emotion Detection Using Deep Learning</strong> – CNN on FER-2013 dataset. <a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">Repo</a></li>
+      <li><strong>HR Analytics</strong> – Built dashboards using PowerBI. <a href="https://github.com/vijayjadhav1996/HR-Analytics-PowerBI-dashboard" target="_blank">Repo</a></li>
+      <li><strong>Credit Card Analysis</strong> – Visualized KPIs using PowerBI. <a href="https://github.com/vijayjadhav1996/Credit_card_PowerBI_Dashboard" target="_blank">Repo</a></li>
     </ul>
   </section>
-
-  <footer data-aos="fade-up">
-    <div class="footer-section">
-      <h2>Certifications</h2>
-      <ul>
-        <li>IBM & Google Data Analytics</li>
-        <li>SQL – Simplilearn</li>
-        <li>Power BI – Analytics Benchmark</li>
-        <li>Python – Marvellous Infosystem</li>
-      </ul>
-    </div>
-    <div class="footer-section">
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>IBM & Google Data Analytics</li>
+      <li>SQL – Simplilearn</li>
+      <li>Power BI – Analytics Benchmark</li>
+      <li>Python – Marvellous Infosystem</li>
+    </ul>
+  </section>
+  <footer>
+    <div class="footer-section contact-horizontal">
       <h2>Contact</h2>
-      <p>Email: jadhavbhaktivijay@gmail.com</p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/bhaktivijayjadhav" target="_blank">bhaktivijayjadhav</a></p>
-      <p>GitHub: <a href="https://github.com/vijayjadhav1996" target="_blank">vijayjadhav1996</a></p>
+      <p><strong>Email:</strong> jadhavbhaktivijay@gmail.com</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bhaktivijayjadhav" target="_blank">bhaktivijayjadhav</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/vijayjadhav1996" target="_blank">vijayjadhav1996</a></p>
     </div>
     <div class="social-icons">
-      <a href="mailto:jadhavbhaktivijay@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:jadhavbhaktivijay@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/vijayjadhav1996" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/bhaktivijayjadhav" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
     <p>&copy; 2025 Bhaktivijay Jadhav — All rights reserved.</p>
   </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
-
     function showSection(id) {
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('active-section'));
-      const target = document.getElementById(id);
-      target.classList.add('active-section');
-      target.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(id).classList.add('active-section');
     }
-
-    function toggleMode() {
-      const root = document.documentElement;
-      const isDark = root.style.getPropertyValue('--bg-color') === '#ffffff';
-      root.style.setProperty('--bg-color', isDark ? '#121212' : '#ffffff');
-      root.style.setProperty('--text-color', isDark ? '#000000' : '#000000');
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
     }
   </script>
 </body>
