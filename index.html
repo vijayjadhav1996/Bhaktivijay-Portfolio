@@ -11,6 +11,7 @@
       font-family: 'Inter', sans-serif;
       background-color: #0e0e0e;
       color: #fff;
+      scroll-behavior: smooth;
     }
     header {
       display: flex;
@@ -77,11 +78,7 @@
       margin: 0 auto;
     }
     section {
-      display: none;
       margin-bottom: 2rem;
-    }
-    .active-section {
-      display: block;
     }
     h2 {
       color: #00ffe1;
@@ -107,15 +104,12 @@
       padding: 1rem;
       color: #aaa;
     }
-
-    /* Contact Form Styling */
     #contact-form {
       background: #1c1c1c;
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 255, 225, 0.1);
     }
-
     #contact-form input,
     #contact-form textarea {
       width: 100%;
@@ -127,12 +121,6 @@
       color: #fff;
       font-size: 1rem;
     }
-
-    #contact-form input::placeholder,
-    #contact-form textarea::placeholder {
-      color: #aaa;
-    }
-
     #contact-form button[type="submit"] {
       width: 100%;
       background: #00ffe1;
@@ -144,19 +132,15 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     #contact-form button[type="submit"]:hover {
       background: #00cbb3;
     }
-
     #success-msg {
       color: #00ffe1;
       text-align: center;
       font-weight: 500;
       margin-top: 1rem;
     }
-
-    /* Mobile responsiveness */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -173,22 +157,10 @@
       .nav-btn {
         width: 100%;
       }
-      #contact-form {
-        padding: 1rem 0.5rem;
-      }
-      #contact-form input,
-      #contact-form textarea {
-        font-size: 0.95rem;
-        padding: 0.65rem;
-      }
-      #contact-form button[type="submit"] {
-        font-size: 0.95rem;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <img class="profile-pic" src="profile.jpg" alt="Profile Picture" />
     <div class="header-text">
@@ -199,94 +171,21 @@
   </header>
 
   <nav>
-    <button class="nav-btn" onclick="showSection('about')">About</button>
-    <button class="nav-btn" onclick="showSection('education')">Education</button>
-    <button class="nav-btn" onclick="showSection('internship')">Internship</button>
-    <button class="nav-btn" onclick="showSection('skills')">Skills</button>
-    <button class="nav-btn" onclick="showSection('projects')">Projects</button>
-    <button class="nav-btn" onclick="showSection('certifications')">Certifications</button>
-    <button class="nav-btn" onclick="showSection('contact')">Contact</button>
+    <a class="nav-btn" href="#about">About</a>
+    <a class="nav-btn" href="#education">Education</a>
+    <a class="nav-btn" href="#internship">Internship</a>
+    <a class="nav-btn" href="#skills">Skills</a>
+    <a class="nav-btn" href="#projects">Projects</a>
+    <a class="nav-btn" href="#certifications">Certifications</a>
+    <a class="nav-btn" href="#contact">Contact</a>
   </nav>
 
   <div class="container">
-    <section id="about" class="active-section">
-      <h2>About Me</h2>
-      <p>
-        I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.
-      </p>
-      <p>
-        I've completed industry-recognized certifications and worked on projects involving emotion detection, HR analytics, and financial dashboards. I’m seeking opportunities as a Data Science Intern or ML Engineer.
-      </p>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>BCS</strong> – T J College, Pune (2016–2020)</li>
-        <li><strong>MCS</strong> – Nowrosjee Wadia College, Pune (2022–2024)</li>
-      </ul>
-    </section>
-
-    <section id="internship">
-      <h2>Internship</h2>
-      <ul>
-        <li>
-          <strong>Python Full Stack Developer Intern</strong> – Telphatech LLP (Feb 2024 – Aug 2024)
-          <ul>
-            <li>Performed data pre-processing and feature engineering to prepare datasets for model training.</li>
-            <li>Implemented and evaluated supervised and unsupervised machine learning algorithms.</li>
-            <li>Developed predictive models to generate insights and improve decision-making.</li>
-            <li>Collaborated on model validation and performance tuning using metrics such as accuracy, precision, and silhouette score.</li>
-          </ul>
-          <p>
-            📜 <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/Telphatech-Internship-Certificate.pdf" target="_blank">View Internship Certificate</a>
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, SQL, C</li>
-        <li><strong>Tools:</strong> MySQL, Git, VS Code, Power BI</li>
-        <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Emotion Detection</h3>
-        <p>Classifies facial emotions using CNN on FER-2013 dataset.</p>
-        <a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">View Repo</a>
-      </div>
-      <div class="project">
-        <h3>HR Analytics Dashboard</h3>
-        <p>Built reports to analyze attrition and HR metrics using Power BI.</p>
-        <a href="https://github.com/vijayjadhav1996/HR-Analytics-PowerBI-dashboard" target="_blank">View Repo</a>
-      </div>
-      <div class="project">
-        <h3>Credit Card Dashboard</h3>
-        <p>Power BI report analyzing transaction patterns and growth KPIs.</p>
-        <a href="https://github.com/vijayjadhav1996/Credit_card_PowerBI_Dashboard" target="_blank">View Repo</a>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <ul>
-        <li><strong>IBM Data Analytics</strong> – <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/IBM-Data-Analytics.pdf" download>📄 Download</a></li>
-        <li><strong>Google Data Analytics</strong> – <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/Google-Data-Analytics.pdf" download>📄 Download</a></li>
-        <li><strong>SQL (Simplilearn)</strong> – <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/SQL-Certificate-Simplilearn.pdf" download>📄 Download</a></li>
-        <li><strong>Power BI (Analytics Benchmark)</strong> – <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/PowerBI-Certificate.pdf" download>📄 Download</a></li>
-        <li><strong>Python (Marvellous Infosystem)</strong> – <a href="https://vijayjadhav1996.github.io/Bhaktivijay-Portfolio/python.pdf" download>📄 Download</a></li>
-      </ul>
-    </section>
+    <!-- [Sections like About, Education, Internship, etc. go here as-is] -->
 
     <section id="contact">
       <h2>Contact</h2>
-      <form id="contact-form" action="https://formspree.io/f/xjkrpobl" method="POST">
+      <form id="contact-form" action="https://formspree.io/f/xjkrpobl" method="POST" novalidate>
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <input type="text" name="subject" placeholder="Subject">
@@ -308,17 +207,19 @@
   </footer>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active-section');
-      });
-      document.getElementById(id).classList.add('active-section');
-    }
-
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
+
+      const email = form.querySelector('input[name="email"]').value;
+      const name = form.querySelector('input[name="name"]').value;
+      const message = form.querySelector('textarea[name="message"]').value;
+
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
 
       fetch(form.action, {
         method: 'POST',
@@ -337,6 +238,5 @@
       });
     });
   </script>
-
 </body>
 </html>
