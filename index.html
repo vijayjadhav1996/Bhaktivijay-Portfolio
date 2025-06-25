@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bhaktivijay | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #0e0e0e;
       color: #fff;
-      scroll-behavior: smooth;
     }
     header {
       display: flex;
@@ -78,7 +80,16 @@
       margin: 0 auto;
     }
     section {
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
       margin-bottom: 2rem;
+    }
+    .active-section {
+      display: block;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
     h2 {
       color: #00ffe1;
@@ -104,42 +115,16 @@
       padding: 1rem;
       color: #aaa;
     }
-    #contact-form {
-      background: #1c1c1c;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 255, 225, 0.1);
-    }
-    #contact-form input,
-    #contact-form textarea {
+    form input, form textarea {
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.8rem;
       margin-bottom: 1rem;
-      border-radius: 5px;
       border: none;
-      background: #2a2a2a;
-      color: #fff;
+      border-radius: 5px;
       font-size: 1rem;
     }
-    #contact-form button[type="submit"] {
-      width: 100%;
-      background: #00ffe1;
-      color: #000;
-      padding: 0.75rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    #contact-form button[type="submit"]:hover {
-      background: #00cbb3;
-    }
-    #success-msg {
-      color: #00ffe1;
-      text-align: center;
-      font-weight: 500;
-      margin-top: 1rem;
+    form textarea {
+      resize: vertical;
     }
     @media (max-width: 600px) {
       header {
@@ -171,30 +156,89 @@
   </header>
 
   <nav>
-    <a class="nav-btn" href="#about">About</a>
-    <a class="nav-btn" href="#education">Education</a>
-    <a class="nav-btn" href="#internship">Internship</a>
-    <a class="nav-btn" href="#skills">Skills</a>
-    <a class="nav-btn" href="#projects">Projects</a>
-    <a class="nav-btn" href="#certifications">Certifications</a>
-    <a class="nav-btn" href="#contact">Contact</a>
+    <button class="nav-btn">About</button>
+    <button class="nav-btn">Education</button>
+    <button class="nav-btn">Internship</button>
+    <button class="nav-btn">Skills</button>
+    <button class="nav-btn">Projects</button>
+    <button class="nav-btn">Certifications</button>
+    <button class="nav-btn">Contact</button>
   </nav>
 
   <div class="container">
-    <!-- [Sections like About, Education, Internship, etc. go here as-is] -->
+    <section id="about" class="active-section">
+      <h2>About Me</h2>
+      <p>I’m an aspiring Data Science and Machine Learning professional with hands-on experience in Python, data analysis, and visualization tools like Power BI and Excel.</p>
+      <p>I've completed industry-recognized certifications and worked on projects involving emotion detection, HR analytics, and financial dashboards.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>BCS</strong> – T J College, Pune (2016–2020)</li>
+        <li><strong>MCS</strong> – Nowrosjee Wadia College, Pune (2022–2024)</li>
+      </ul>
+    </section>
+
+    <section id="internship">
+      <h2>Internship</h2>
+      <ul>
+        <li>
+          <strong>Python Full Stack Developer Intern</strong> – Telphatech LLP (Feb 2024 – Aug 2024)
+          <ul>
+            <li>Performed data pre-processing and feature engineering to prepare datasets for model training.</li>
+            <li>Implemented and evaluated supervised and unsupervised machine learning algorithms.</li>
+            <li>Developed predictive models to generate insights and improve decision-making.</li>
+            <li>Collaborated on model validation and performance tuning using metrics such as accuracy, precision, and silhouette score.</li>
+          </ul>
+          <p>📜 <a href="Telphatech-Internship-Certificate.pdf" target="_blank">View Internship Certificate</a></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> Python, SQL, C</li>
+        <li><strong>Tools:</strong> MySQL, Git, VS Code, Power BI</li>
+        <li><strong>Libraries:</strong> Pandas, NumPy, Scikit-learn</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Emotion Detection</h3>
+        <p>Classifies facial emotions using CNN on FER-2013 dataset.</p>
+        <a href="https://github.com/vijayjadhav1996/emotion-detector" target="_blank">View Repo</a>
+      </div>
+      <div class="project">
+        <h3>HR Analytics Dashboard</h3>
+        <p>Power BI dashboard to analyze attrition and HR metrics.</p>
+        <a href="https://github.com/vijayjadhav1996/HR-Analytics-PowerBI-dashboard" target="_blank">View Repo</a>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li><strong>IBM Data Analytics</strong> – <a href="IBM-Data-Analytics.pdf" download>📄 Download</a></li>
+        <li><strong>Google Data Analytics</strong> – <a href="Google-Data-Analytics.pdf" download>📄 Download</a></li>
+        <li><strong>SQL (Simplilearn)</strong> – <a href="SQL-Certificate-Simplilearn.pdf" download>📄 Download</a></li>
+      </ul>
+    </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <form id="contact-form" action="https://formspree.io/f/xjkrpobl" method="POST" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/xjkrpobl" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <input type="text" name="subject" placeholder="Subject">
         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-        <p id="success-msg" style="display: none;">✅ Message sent successfully!</p>
+        <button type="submit" class="nav-btn">Send Message</button>
+        <p id="success-msg" style="color: #00ffe1; display: none;">✅ Message sent successfully!</p>
       </form>
-
-      <p style="margin-top: 1rem;">
+      <p>
         📧 jadhavbhaktivijay@gmail.com<br>
         🔗 <a href="https://www.linkedin.com/in/bhaktivijayjadhav" target="_blank">LinkedIn</a><br>
         💼 <a href="https://github.com/vijayjadhav1996" target="_blank">GitHub</a>
@@ -207,35 +251,41 @@
   </footer>
 
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
+    document.querySelectorAll(".nav-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const targetId = this.textContent.toLowerCase();
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          document.querySelectorAll("section").forEach((s) => s.classList.remove("active-section"));
+          targetSection.classList.add("active-section");
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
-
-      const email = form.querySelector('input[name="email"]').value;
-      const name = form.querySelector('input[name="name"]').value;
-      const message = form.querySelector('textarea[name="message"]').value;
-
-      if (!name || !email || !message) {
-        alert("Please fill in all required fields.");
-        return;
-      }
-
       fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('success-msg').style.display = 'block';
-          form.reset();
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      }).catch(error => {
-        alert("Error submitting form.");
-        console.error(error);
-      });
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((res) => {
+          if (res.ok) {
+            document.getElementById("success-msg").style.display = "block";
+            form.reset();
+          } else {
+            alert("Something went wrong. Try again later.");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Form submission failed.");
+        });
     });
   </script>
 </body>
